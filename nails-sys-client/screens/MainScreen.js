@@ -9,6 +9,7 @@ const navigateToCategory = (props) => {
     props.navigation.navigate('Category');
 };
 
+
 const HomeScreen = (props) => {
 
     return (

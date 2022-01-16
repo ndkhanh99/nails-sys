@@ -1,18 +1,27 @@
-import React from 'react';
-import { StyleSheet, View, Text, Dimensions, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, View, Text, Dimensions, TouchableOpacity, Button } from 'react-native';
 //! sass
 import Color from '../constants/color';
 import Grid from '../constants/layout/grid';
+import { useNavigation } from '@react-navigation/native'
 
 
-const CategoryItem = (props) => {
-    const touchHandler = () => {
-    }
+
+function CategoryItem (props) {
+
+    const navigation = useNavigation();
+        const itemid = props.item;
+        
     return (
-        <TouchableOpacity activeOpacity={0.5} style={!props.empty ? styles.item : [styles.item, styles.itemInvisible]} onPress={touchHandler}>
+        <TouchableOpacity 
+            onPress={() => {navigation.navigate('Details', {
+                itemID: itemid,
+            }); }}
+            activeOpacity={0.5} style={!props.empty ? styles.item : [styles.item, styles.itemInvisible]}
+            >
             <View>
                 <Text style={styles.itemText}>{!props.empty && props.item.id && props.item.id}</Text>
-                <Text style={styles.itemText}>{!props.empty && props.item.username && props.item.username}</Text>
+                <Text style={styles.itemText}>{!props.empty && props.item.name_cat && props.item.name_cat}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -31,7 +40,7 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 6,
-        shadowOpacity: 0.35,
+        shadowOpacity: 0.25,
         padding: 20,
         borderRadius: 10,
     },
@@ -43,5 +52,7 @@ const styles = StyleSheet.create({
         color: Color.mainText,
     },
 });
+
+console.log(styles.item.height);
 
 export default CategoryItem;

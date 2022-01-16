@@ -1,17 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 //! API
 import axios from 'axios';
 //! comps
 import CategoryItem from '../components/CategoryItem';
 //! sass
 import Grid from '../constants/layout/grid';
+import 'react-native-gesture-handler';
 
-const CategoryScreen = (props) => {
+
+
+function CategoryScreen (props) {
+
     const [categories, setCategories] = React.useState([]);
 
     const getCategories = async () => {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+        const response = await axios.get('http://localhost:3000/get_data');
         return response;
     };
 
@@ -69,6 +73,11 @@ const styles = StyleSheet.create({
         padding: 10
     },
     container: {},
+    inputText: {
+        position: 'absolute',
+
+        textAlign: 'center',
+    }
 });
 
 export default CategoryScreen;

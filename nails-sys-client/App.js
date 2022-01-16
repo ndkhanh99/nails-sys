@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createDrawerNavigator} from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 import { registerRootComponent } from 'expo';
 
 
@@ -17,8 +18,11 @@ import AuthScreen from './screens/AuthScreen';
 import CategoryScreen from './screens/CategoryScreen';
 import HomeScreen from './screens/MainScreen';
 import SettingScreen from './screens/SettingScreen'
+import Details from './screens/DetailScreen';
+import CategoryItem from './components/CategoryItem';
+import DetailsScreen from './screens/DetailScreen'
 
-const App = () => {
+const App = (props) => {
     const [isLoadingComplete, setIsLoadingComplete] = React.useState(false);
 
     const fetchFonts = async () => {
@@ -42,16 +46,20 @@ const App = () => {
         return <AppLoading startAsync={() => fetchFonts()} onFinish={() => setIsLoadingComplete(true)} onError={() => console.warn} />;
     }
 
-    // const Stack = createNativeStackNavigator();
+    const MyStack = createStackNavigator();
     const Drawer = createDrawerNavigator();
+
 
     return (
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="Main">
-                <Drawer.Screen name="Main" component={MainScreen}/>
+
+                <Drawer.Screen name="Main" component={HomeScreen}/>
                 <Drawer.Screen name="Auth" component={AuthScreen}/>
                 <Drawer.Screen name="Setting" component={SettingScreen}/>
                 <Drawer.Screen name="Category" component={CategoryScreen} />
+                <Drawer.Screen name="Details" component={Details} />
+                
             </Drawer.Navigator>
         </NavigationContainer>
     );

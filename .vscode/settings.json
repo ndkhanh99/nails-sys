@@ -1,0 +1,18 @@
+{
+    "python.pythonPath": "/Users/macbook/Desktop/nails-sys/venv/bin/python3",
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "duykhanh",
+            "database": "nailsapp",
+            "username": "root",
+            "password": "duykhanh12345"
+        }
+    ]
+}

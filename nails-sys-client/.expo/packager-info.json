@@ -2,9 +2,9 @@
   "devToolsPort": 19002,
   "expoServerPort": null,
   "packagerPort": 19000,
-  "webpackServerPort": 19006,
-  "expoServerNgrokUrl": "https://ac-izj.anonymous.nails-sys-client.exp.direct",
-  "packagerNgrokUrl": "https://packager.ac-izj.anonymous.nails-sys-client.exp.direct",
-  "ngrokPid": 8680,
+  "webpackServerPort": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "packagerPid": null
 }
