@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default {\n  numColumns: 3\n};","map":{"version":3,"sources":["C:/Users/victhangnguyen/nails-sys/nails-sys-client/constants/layout/grid.js"],"names":["numColumns"],"mappings":"AAAA,eAAe;AACXA,EAAAA,UAAU,EAAG;AADF,CAAf","sourcesContent":["export default {\r\n    numColumns : 3,\r\n};\r\n"]},"metadata":{},"sourceType":"module"}
