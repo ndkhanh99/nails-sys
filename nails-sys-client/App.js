@@ -49,6 +49,7 @@ const App = (props) => {
     const MyStack = createStackNavigator();
     const Drawer = createDrawerNavigator();
 
+    
 
     return (
         <NavigationContainer>
@@ -58,7 +59,7 @@ const App = (props) => {
                 <Drawer.Screen name="Auth" component={AuthScreen}/>
                 <Drawer.Screen name="Setting" component={SettingScreen}/>
                 <Drawer.Screen name="Category" component={CategoryScreen} />
-                <Drawer.Screen name="Details" component={Details} />
+                <Drawer.Screen name="Details" component={DetailsScreen} />
                 
             </Drawer.Navigator>
         </NavigationContainer>

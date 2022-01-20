@@ -100,6 +100,21 @@ def delete_item(id):
     db.session.commit()
     
     return cat_sches.jsonify(items)
+
+
+@app.route('/update/<id>/' , methods = ['PUT'])
+def update_data(id):
+    
+    item_data = category.query.filter_by(id = id).first()
+    
+    title = request.json['title']
+    
+    item_data.name_cat = title 
+    
+    db.session.commit()
+    
+    return cat_sches.jsonify(item_data)
+    
     
     
             

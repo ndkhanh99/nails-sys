@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native'
 function CategoryItem (props) {
 
     const navigation = useNavigation();
-        const itemid = props.item;
+    const itemid = props.item;
         
     return (
         <TouchableOpacity 
