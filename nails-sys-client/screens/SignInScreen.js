@@ -1,11 +1,19 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-const SignInScreen = () => {
+import { StyleSheet, Text, View } from 'react-native';
+const SignInScreen = (props) => {
     return (
-        <View>
-            <Text>Sign In Screen</Text>
+        <View style={styles.screen}>
+            <Text>SignInScreen</Text>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
 
 export default SignInScreen;

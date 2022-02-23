@@ -1,80 +1,76 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator} from '@react-navigation/drawer';
-import { createStackNavigator } from '@react-navigation/stack';
-import { registerRootComponent } from 'expo';
+import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, Platform, StatusBar } from 'react-native';
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+//! themes -> useTheme
+import theme from './themes/Light';
 
+import { AppNavigator } from './navigation';
 
-// import useCachedResources from './hooks/useCachedResources';
-//!expo
-import * as Font from 'expo-font';
-import AppLoading from 'expo-app-loading';
+// import Colors from './constants/color';
+// import  from './components/globalStyles';
+
+//! icons
+// import IconAppointmentOutline from './assets/icons/IconAppointmentOutline';
+// import IconHomeOutline from './assets/icons/IconHomeOutline';
+// import IconManageOutline from './assets/icons/IconManageOutline';
+// import IconServicesOutline from './assets/icons/IconServicesOutline';
+// import IconSettingOutline from './assets/icons/IconSettingOutline';
+// import IconSignoutOutline from './assets/icons/IconSignoutOutline';
+// import IconTurnTrackingOutline from './assets/icons/IconTurnTrackingOutline';
+// import IconExtensions from './assets/icons/IconExtensions';
 
 //! comps
-import MainScreen from './screens/MainScreen';
-import AuthScreen from './screens/AuthScreen';
-import CategoryScreen from './screens/CategoryScreen';
-import HomeScreen from './screens/MainScreen';
-import SettingScreen from './screens/SettingScreen'
-import Details from './screens/DetailScreen';
-import CategoryItem from './components/CategoryItem';
-import DetailsScreen from './screens/DetailScreen'
+// import TabButton from './components/TabButton';
+// import DrawerContent from './navigation/navigators/DrawerContent';
 
-const App = (props) => {
-    const [isLoadingComplete, setIsLoadingComplete] = React.useState(false);
+//! screens
+// import AppointmentScreen from './screens/AppointmentScreen';
+// import HomeScreen from './screens/HomeScreen';
+// import ManageScreen from './screens/ManageScreen';
+// import ServicesScreen from './screens/ServicesScreen';
+// import SettingScreen from './screens/SettingScreen';
+// import TurnTrackingScreen from './screens/TurnTrackingScreen';
 
-    const fetchFonts = async () => {
-        await Font.loadAsync({
-            'Roboto-Black': require('./assets/fonts/Roboto-Black.ttf'),
-            'Roboto-BlackItalic': require('./assets/fonts/Roboto-BlackItalic.ttf'),
-            'roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
-            'Roboto-BoldItalic': require('./assets/fonts/Roboto-BoldItalic.ttf'),
-            'Roboto-Italic': require('./assets/fonts/Roboto-Italic.ttf'),
-            'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
-            'Roboto-LightItalic': require('./assets/fonts/Roboto-Light.ttf'),
-            'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
-            'Roboto-MediumItalic': require('./assets/fonts/Roboto-MediumItalic.ttf'),
-            'roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
-            'roboto-Thin': require('./assets/fonts/Roboto-Thin.ttf'),
-            'Roboto-ThinItalic': require('./assets/fonts/Roboto-ThinItalic.ttf'),
-        });
+//! navigation/navigators
+import DrawerMenu from './navigation/navigators/DrawerMenu';
+
+
+export default function App() {
+    // /* <NavItem icon={<IconHomeOutline style={{ width: 25, height: 25 }} />}>Home</NavItem> */
+
+    const styles = {
+        container: {
+            flex: 1,
+            marginTop: StatusBar.currentHeight,
+            paddingBottom: StatusBar.currentHeight / 2,
+            //! Barbottom
+            backgroundColor: theme.colors.primary,
+            alignItems: 'flex-start',
+            justifyContent: 'flex-start',
+        },
+        innerContainer: {
+            justifyContent: 'flex-start',
+            padding: 15,
+        },
+        avatar: {
+            width: 60,
+            height: 60,
+            borderRadius: 10,
+            // marginTop: 10,
+        },
+        username: {
+            fontSize: 20,
+            fontWeight: 'bold',
+            color: theme.colors.black,
+        },
     };
-
-    if (!isLoadingComplete) {
-        return <AppLoading startAsync={() => fetchFonts()} onFinish={() => setIsLoadingComplete(true)} onError={() => console.warn} />;
-    }
-
-    const MyStack = createStackNavigator();
-    const Drawer = createDrawerNavigator();
 
     
 
     return (
-        <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Main">
-
-                <Drawer.Screen name="Main" component={HomeScreen}/>
-                <Drawer.Screen name="Auth" component={AuthScreen}/>
-                <Drawer.Screen name="Setting" component={SettingScreen}/>
-                <Drawer.Screen name="Category" component={CategoryScreen} />
-                <Drawer.Screen name="Details" component={DetailsScreen} />
-                
-            </Drawer.Navigator>
-        </NavigationContainer>
+        <SafeAreaProvider>
+            <AppNavigator />
+        </SafeAreaProvider>
     );
-};
-
-registerRootComponent(App);
-
-export default App;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+}

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const AuthScreen = (props) => {
     return (
         <View style={styles.screen}>
-            <Text>Hello AuthScreen</Text>
+            <Text>AuthScreen</Text>
         </View>
     );
 };

@@ -1,15 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-
-const SettingScreen = () => {
-
+import { StyleSheet, Text, View } from 'react-native';
+const SettingScreen = (props) => {
     return (
-        <View>
-            <Text>
-                Hello Setting Screen.
-            </Text>
+        <View style={styles.screen}>
+            <Text>SettingScreen</Text>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
 
 export default SettingScreen;
