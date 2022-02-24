@@ -1,12 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 const AppointmentScreen = () => {
     return (
-        <View>
+        <View style={styles.screen}>
             <Text>AppointmentScreen</Text>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
 
 export default AppointmentScreen;

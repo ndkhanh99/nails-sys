@@ -2,61 +2,27 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useWindowDimensions } from 'react-native';
-// import  from './components/globalStyles';
+import { createStackNavigator } from '@react-navigation/stack';
+
 //! theme
 import theme from '../../themes/Light';
 
-//! icons
-// import IconAppointmentOutline from './assets/icons/IconAppointmentOutline';
-// import IconHomeOutline from './assets/icons/IconHomeOutline';
-// import IconManageOutline from './assets/icons/IconManageOutline';
-// import IconServicesOutline from './assets/icons/IconServicesOutline';
-// import IconSettingOutline from './assets/icons/IconSettingOutline';
-// import IconSignoutOutline from './assets/icons/IconSignoutOutline';
-// import IconTurnTrackingOutline from './assets/icons/IconTurnTrackingOutline';
-// import IconExtensions from './assets/icons/IconExtensions';
-
 //! navigation/navigators
-// import TabButton from './components/TabButton';
 import DrawerContent from './DrawerContent';
+import HomeStackNavigator from './HomeStackNavigator';
+import ServicesStackNavigator from './ServicesStackNavigator';
 
 //! screens
-// import AppointmentScreen from './screens/AppointmentScreen';
+import AppointmentScreen from '../../screens/AppointmentScreen';
+import AboutScreen from '../../screens/AboutScreen';
+import ManageScreen from '../../screens/ManageScreen';
+import SettingScreen from '../../screens/SettingScreen';
+import TurnTrackingScreen from '../../screens/TurnTrackingScreen';
 import HomeScreen from '../../screens/HomeScreen';
-// import ManageScreen from './screens/ManageScreen';
 import ServicesScreen from '../../screens/ServicesScreen';
-// import SettingScreen from './screens/SettingScreen';
-// import TurnTrackingScreen from './screens/TurnTrackingScreen';
 
 const DrawerMenu = (props) => {
-    const [activeIndex, setActiveIndex] = React.useState(0); //! 0 = Home
-    // const tabButtons = [
-    //     {
-    //         icon: <IconHomeOutline sizeIcon={25} />,
-    //         title: 'Home',
-    //     },
-    //     {
-    //         icon: <IconServicesOutline sizeIcon={25} />,
-    //         title: 'Services',
-    //     },
-    //     {
-    //         icon: <IconTurnTrackingOutline sizeIcon={25} />,
-    //         title: 'Turn Tracking',
-    //     },
-    //     {
-    //         icon: <IconAppointmentOutline sizeIcon={25} />,
-    //         title: 'Appointment',
-    //     },
-    //     {
-    //         icon: <IconManageOutline sizeIcon={25} />,
-    //         title: 'Manage',
-    //     },
-    //     {
-    //         icon: <IconSettingOutline sizeIcon={25} />,
-    //         title: 'Setting',
-    //     },
-    // ];
-    // /* <NavItem icon={<IconHomeOutline style={{ width: 25, height: 25 }} />}>Home</NavItem> */
+    const [activeIndex, setActiveIndex] = React.useState(1); //! 0 = Home
     const dimensions = useWindowDimensions();
     const isLargeScreen = dimensions.width >= 768;
 
@@ -67,7 +33,6 @@ const DrawerMenu = (props) => {
             <Drawer.Navigator
                 hideStatusBar={true}
                 defaultStatus="open"
-
                 screenOptions={{
                     drawerStyle: {
                         width: isLargeScreen ? '35%' : '60%',
@@ -101,9 +66,19 @@ const DrawerMenu = (props) => {
                     //     headerShown: false,
                     // }}
                 >
-                    {(props) => <HomeScreen {...props} />}
+                    {(props) => <HomeStackNavigator navigation={props.navigation} />}
                 </Drawer.Screen>
-                <Drawer.Screen name="Services">{(props) => <ServicesScreen {...props} />}</Drawer.Screen>
+                <Drawer.Screen
+                    name="Services"
+                    component={ServicesStackNavigator}
+                    // options={{
+                    //     headerShown: false,
+                    // }}
+                />
+                <Drawer.Screen name="TurnTracking">{(props) => <TurnTrackingScreen {...props} />}</Drawer.Screen>
+                <Drawer.Screen name="Appointment">{(props) => <AppointmentScreen {...props} />}</Drawer.Screen>
+                <Drawer.Screen name="Manage">{(props) => <ManageScreen {...props} />}</Drawer.Screen>
+                <Drawer.Screen name="Setting">{(props) => <SettingScreen {...props} />}</Drawer.Screen>
             </Drawer.Navigator>
         </View>
     );

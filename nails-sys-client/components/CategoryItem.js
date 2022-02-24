@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, Dimensions, TouchableOpacity, Button } from 'react-native';
 //! sass
 import Colors from '../constants/color';
-import Grid from '../constants/layout/grid';
-import { useNavigation } from '@react-navigation/native'
 
 const CategoryItem = ({ item, empty, style }) => {
     const touchHandler = () => {};

@@ -1,6 +1,5 @@
 import React from 'react';
 import Svg, { Circle, Polyline } from 'react-native-svg';
-import Colors from './../../constants/color';
 
 const IconTurnTrackingOutline = ({ index, activeIndex, sizeIcon, theme }) => {
 

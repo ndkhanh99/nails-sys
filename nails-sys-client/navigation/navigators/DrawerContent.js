@@ -18,26 +18,32 @@ const DrawerContent = (props) => {
         {
             icon: <IconHomeOutline sizeIcon={25} />,
             name: 'Home',
+            navigate: 'Home',
         },
         {
             icon: <IconServicesOutline sizeIcon={25} />,
             name: 'Services',
+            navigate: 'Services',
         },
         {
             icon: <IconTurnTrackingOutline sizeIcon={25} />,
             name: 'Turn Tracking',
+            navigate: 'TurnTracking',
         },
         {
             icon: <IconAppointmentOutline sizeIcon={25} />,
             name: 'Appointment',
+            navigate: 'Appointment',
         },
         {
             icon: <IconManageOutline sizeIcon={25} />,
             name: 'Manage',
+            navigate: 'Manage',
         },
         {
             icon: <IconSettingOutline sizeIcon={25} />,
             name: 'Setting',
+            navigate: 'Setting',
         },
     ];
 
@@ -84,7 +90,7 @@ const DrawerContent = (props) => {
                                 activeTintColor={theme.colors.primary}
                                 key={index}
                                 onPress={() => {
-                                    navigation.navigate(drawerItem.name);
+                                    navigation.navigate(drawerItem.navigate);
                                     setActiveIndex(index);
                                 }}
                                 label={({ focused }) => {

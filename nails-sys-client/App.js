@@ -1,11 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView, Platform, StatusBar } from 'react-native';
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 //! themes -> useTheme
 import theme from './themes/Light';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
+//! imp Navigation
 import { AppNavigator } from './navigation';
+
+//! imp Modals
+import RootModal from './components/Modal'
 
 // import Colors from './constants/color';
 // import  from './components/globalStyles';
@@ -32,12 +36,7 @@ import { AppNavigator } from './navigation';
 // import SettingScreen from './screens/SettingScreen';
 // import TurnTrackingScreen from './screens/TurnTrackingScreen';
 
-//! navigation/navigators
-import DrawerMenu from './navigation/navigators/DrawerMenu';
-
-
 export default function App() {
-    // /* <NavItem icon={<IconHomeOutline style={{ width: 25, height: 25 }} />}>Home</NavItem> */
 
     const styles = {
         container: {
@@ -69,8 +68,18 @@ export default function App() {
     
 
     return (
-        <SafeAreaProvider>
-            <AppNavigator />
-        </SafeAreaProvider>
+        <SafeAreaView style={style.container}>
+            <Provider store={store}>
+                <AppNavigator />
+                <RootModal />
+            </Provider>
+        </SafeAreaView>
     );
 }
+
+const style = StyleSheet.create({
+    container: {
+        flex: 1,
+        marginTop: StatusBar.currentHeight,
+    },
+});

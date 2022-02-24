@@ -1,6 +1,5 @@
 import React from 'react';
 import Svg, { Rect } from 'react-native-svg';
-import Colors from '../../constants/color';
 
 const IconExtensions = ({ index, activeIndex, sizeIcon, theme }) => {
 

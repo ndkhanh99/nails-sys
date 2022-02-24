@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 //! icons
 
 
-const HomeScreen = (props) => {
+const HomeScreen = () => {
     return (
         <TouchableOpacity style={styles.screen}>
             <View >

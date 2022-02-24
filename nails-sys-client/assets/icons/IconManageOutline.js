@@ -1,6 +1,5 @@
 import React from 'react';
 import Svg, { Rect, Line, Polyline } from 'react-native-svg';
-import Colors from '../../constants/color';
 
 const IconManageOutline = ({ index, activeIndex, sizeIcon, theme }) => {
     const styles = {

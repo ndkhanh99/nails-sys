@@ -1,6 +1,5 @@
 import React from 'react';
 import Svg, { Rect } from 'react-native-svg';
-import Colors from './../../constants/color';
 
 const IconServicesOutline = ({ index, activeIndex, sizeIcon, theme }) => {
 

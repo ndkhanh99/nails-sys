@@ -6,7 +6,7 @@ const useScreenDimensions = () => {
     React.useEffect(() => {
         const onChange = (result) => {
             setScreenData(result.screen);
-            console.log(result.screen);
+            // console.log(result.screen);
         };
 
         Dimensions.addEventListener('change', onChange);

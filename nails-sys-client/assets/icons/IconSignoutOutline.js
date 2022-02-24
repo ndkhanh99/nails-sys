@@ -1,6 +1,5 @@
 import React from 'react';
 import Svg, { Path, Line } from 'react-native-svg';
-import Colors from '../../constants/color';
 
 const IconSignoutOutline = ({ sizeIcon, theme }) => {
 
